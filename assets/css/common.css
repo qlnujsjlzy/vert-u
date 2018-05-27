@@ -1,0 +1,16 @@
+/* ---------------------icon font----------------------- */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* ---------------------single CSS----------------------- */
+/*App中需要设置*/
+body {
+  color: #3c3f41;
+  font-size: 13px;
+  font-weight: 500;
+}
