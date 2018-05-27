@@ -59,20 +59,6 @@
 </script>
 
 <style scoped>
-  .clear:after {
-    display: table;
-    content: '';
-    clear: both;
-  }
-
-  .C4 {
-    float: left;
-    width: 32.4%
-  }
-
-  .hot {
-    background-color: #f9f6f1;
-  }
 
   .hot li {
     padding: 1px 1px;
@@ -104,19 +90,4 @@
     font-style: normal;
   }
 
-  .bgf {
-    background-color: #fff;
-  }
-
-  .cr {
-    color: #c80000;
-  }
-
-  .db {
-    display: block;
-  }
-
-  .W {
-    width: 100%;
-  }
 </style>

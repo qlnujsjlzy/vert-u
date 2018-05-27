@@ -67,6 +67,7 @@ module.exports = {
     [
       '/api',
       {
+        // target: 'http://sdptest.sdongpo.com',
         target: 'http://zhonghemeinong.sdongpo.com',
         pathRewrite: {'^/api': '/'}
       }

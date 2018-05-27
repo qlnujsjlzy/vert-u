@@ -2,13 +2,13 @@ import {cache} from '../config/cache.js'
 
 const mutations = {
   setAdvList(state, list) {
-    state.advList=[],
-    list.forEach((item) => {
-      state.advList.push({
-        url: 'javascript:',
-        img: item.pic,
+    state.advList = [],
+      list.forEach((item) => {
+        state.advList.push({
+          url: 'javascript:',
+          img: item.pic,
+        });
       });
-    });
   },
   initCartList(state) {
     let initCart = cache.get('buyCart');
@@ -59,12 +59,15 @@ const mutations = {
     state.cartList = cart;
     let total = 0.00;
     let count = 0;
+    let line = 0;
     state.cartList.forEach((value, key) => {
       total = cache.accAdd(total, cache.accMul(value.price, value.amount));
       count += value.amount;
+      line++
     });
     state.cartSelectCount = count;
-    state.cartSelectPrice = total;
+    state.cartSelectPrice = total.toFixed(2);
+    state.cartLine = line;
     //存入cache
     cache.set('buyCart', state.cartList);
   },

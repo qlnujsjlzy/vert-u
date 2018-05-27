@@ -35,7 +35,7 @@
     },
     methods: {
       toDetail(item) {
-        this.$router.push("/goods/" + item.commodity_id);
+        this.$router.push("/goods/" + item.parent_id);
       }
     }
   };

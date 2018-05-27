@@ -1,40 +1,40 @@
 <template>
   <div>
-      <div class="food">
-        <!-- 内容部分 -->
-        <div class="food-content">
-          <div class="image-header">
-            <img :src="goods.logo">
-            <div class="back" @click="returnBack">
-              <i class="icon-arrow_lift"></i>
-            </div>
-          </div>
-          <div class="content">
-            <h1 class="title">{{goods.name}}</h1>
-            <div class="detail">
-              <span class="rating">{{goods.summary_arr[0].summary}}</span>
-            </div>
-            <div class="price">
-              <span class="now">￥{{goods.price}}/{{goods.unit}}</span><span class="old" v-show="goods.oldPrice">￥{{goods.oldPrice}}</span>
-            </div>
-            <div class="cartcontrol-wrapper" v-show="totalCount !==0">
-              <vt-cart-control :goodsDetail="goods"></vt-cart-control>
-            </div>
-            <div @click.stop.prevent="addFirst" class="buy" v-show="totalCount ===0">加入购物车
-            </div>
-          </div>
-          <!-- 商品详情 -->
-          <vt-split v-show="goods.notice"></vt-split>
-          <div class="info" v-show="goods.notice">
-            <h1 class="title">商品信息</h1>
-            <p class="text">{{goods.notice}}</p>
-          </div>
-          <vt-split></vt-split>
-          <div style="text-align: center;padding-bottom: 60px">
-            <img style="width: 100%" v-for="pic in goods.detail_pic" :src="pic.url"/>
+    <div class="food">
+      <!-- 内容部分 -->
+      <div class="food-content">
+        <div class="image-header">
+          <img :src="goods.logo">
+          <div class="back" @click="returnBack">
+            <i class="icon-arrow_lift"></i>
           </div>
         </div>
+        <div class="content">
+          <h1 class="title">{{goods.name}}</h1>
+          <div class="detail">
+            <span class="rating">{{goods.summary_arr[0].summary}}</span>
+          </div>
+          <div class="price">
+            <span class="now">￥{{goods.price}}/{{goods.unit}}</span><span class="old" v-show="goods.oldPrice">￥{{goods.oldPrice}}</span>
+          </div>
+          <div class="cartcontrol-wrapper" v-show="totalCount !==0">
+            <vt-cart-control :goodsDetail="goods"></vt-cart-control>
+          </div>
+          <div @click.stop.prevent="addFirst" class="buy" v-show="totalCount ===0">加入购物车
+          </div>
+        </div>
+        <!-- 商品详情 -->
+        <vt-split v-show="goods.notice"></vt-split>
+        <div class="info" v-show="goods.notice">
+          <h1 class="title">商品信息</h1>
+          <p class="text">{{goods.notice}}</p>
+        </div>
+        <vt-split></vt-split>
+        <div style="text-align: center;padding-bottom: 60px">
+          <img style="width: 100%" v-for="pic in goods.detail_pic" :src="pic.url"/>
+        </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -124,7 +124,7 @@
           top: 0
           left: 0
           width: 100%
-        height: 100%
+          height: 100%
         .back
           position: absolute
           top: 10px

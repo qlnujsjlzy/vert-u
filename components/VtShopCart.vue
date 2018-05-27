@@ -6,10 +6,10 @@
           <div class="logo" :class="{'highlight':cartSelectCount > 0}">
             <span class="icon-shopping_cart" :class="{'highlight':cartSelectCount > 0}"></span>
           </div>
-          <div class="num" v-show="cartSelectCount > 0">{{cartSelectCount}}</div>
+          <div class="num" v-show="cartLine > 0">{{cartLine}}</div>
         </div>
         <!-- 计算属性计算总和 -->
-        <div class="price" :class="{'highlight':cartSelectPrice > 0}">合计:{{cartSelectPrice}}元</div>
+        <div class="price" :class="{'highlight':cartSelectPrice > 0}">总价：<span class="price-sum">￥{{cartSelectPrice}}</span></div>
       </div>
       <div class="content-right" @click.stop.prevent="pay">
         <div class="pay" :class="payClass">{{payDesc}}</div>
@@ -34,15 +34,12 @@
     },
     computed: {
       ...mapState([
-        'cartSelectCount', 'cartSelectPrice'
+        'cartSelectCount', 'cartSelectPrice','cartLine'
       ]),
       payDesc() {
         if (this.cartSelectPrice < 100) {
           return `去凑单`;
         } else {
-          if (this.$route.path.indexOf("goods")!==-1){
-            return "去结算";
-          }
           return '去购物车';
         }
       },
@@ -79,9 +76,10 @@
     z-index: 50
     width: 100%
     height: 48px
+    box-shadow: 0px -1px 5px #888888
     .content
       display: flex
-      background: #141d27
+      background: #fff
       font-size: 0
       color: rgba(255, 255, 255, 0.4)
       .content-left
@@ -97,19 +95,20 @@
           height: 56px
           box-sizing: border-box
           border-radius: 50%
-          background: #141d27
+          background: #FFF
+          box-shadow: 2px 2px 5px #888888;
           .logo
             width: 100%
             height: 100%
             border-radius: 50%
             text-align: center
-            background: #2b343c
+            background: #FFF
             &.highlight
               background: #16aa6b
             .icon-shopping_cart
               line-height: 44px
               font-size: 24px
-              color: #80858a
+              color: #16aa6b;
               &.highlight
                 color: #fff
           .num
@@ -134,8 +133,13 @@
           font-size: 16px
           font-weight: 500
           float: right
+          padding-right: 40px;
+          color: #000
+         .price-sum
+           padding-left 10px
+           color: #ff4e4e
         &.highlight
-          color: #fff
+          color: #000
         .desc
           display: inline-block
           vertical-align: top
