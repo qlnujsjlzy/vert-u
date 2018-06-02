@@ -10,7 +10,7 @@ const store = () => {
       cartListSubmit: null,
       cartSelectCount: 0, // 购物车 选中的总数量
       cartSelectPrice: 0, // 购物车 选中的总价格
-      cartLine: 0,// 购物车行项目
+      cartLine: '',// 购物车行项目
     },
     mutations
   });

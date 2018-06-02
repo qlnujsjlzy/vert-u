@@ -11,63 +11,37 @@
         </svg>
       </cell>
     </group>
-
-
-    <dl class="F_">
-      <dt class="active">
-        <i class="app-icon-zhengque1"></i>
-      </dt>
-      <dd>
-        <div class="F_">
-          <div class="img">
-            <!--<img ng-src="https://sdpsass.b0.upaiyun.com/base_5_5_0/upload_pic/com_thumb_20180517102023887a4bf75afce6e7975f0.jpg!100x100" class="max goods-img" src="https://sdpsass.b0.upaiyun.com/base_5_5_0/upload_pic/com_thumb_20180517102023887a4bf75afce6e7975f0.jpg!100x100">-->
-          </div>
-
-          <div class="box f">
-            <div class="title">
-              <b class="ng-binding">香菜（优质）</b>
-              <span class="f10 c9 ng-binding" ng-show="item.summary">(约5斤/件
-一件按实际重量称重)</span>
-              <p class="ng-binding">
-                ￥14.00
-                <em class="ng-binding">
-                  / 件
-                </em>
-              </p>
-            </div>
-          </div>
-          <div class="collection" ng-click="delCart(item)">
-            <i class="iconfont icon-del"></i>
-          </div>
-          <ul class="plus clear">
-            <li ng-touchstart="addCart(item, $event)"> <i class="iconfont icon-plus"></i> </li>
-            <li class="amount">
-              <em ng-click="keyboard($event,item)" class="ng-binding">6.00</em>
-            </li>
-            <li ng-click="decCart(item)"> <i class="iconfont icon-minus1"></i> </li>
-          </ul>
-
-        </div>
-      </dd>
-    </dl>
+    <ul v-show="cartList">
+      <li v-for="item  in Array.from(cartList)">
+        <vt-cart-line :goodsDetail="item[1]"></vt-cart-line>
+      </li>
+    </ul>
 
   </div>
 </template>
 
 <script>
   import {Cell, Group, Search, XButton, XHeader} from 'vux';
+  import {mapState} from 'vuex'
+  import VtCartLine from '~/components/VtCartLine'
 
   export default {
     data() {
-      return {
-      };
+      return {};
+    },
+
+    computed: {
+      ...mapState([
+        'cartList'
+      ]),
     },
     components: {
+      VtCartLine,
       XHeader,
       Search,
       Group,
       Cell,
       XButton
     }
-  };
+  }
 </script>

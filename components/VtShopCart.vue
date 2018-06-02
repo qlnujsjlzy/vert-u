@@ -133,10 +133,8 @@
           font-size: 16px
           font-weight: 500
           float: right
-          padding-right: 40px;
           color: #000
          .price-sum
-           padding-left 10px
            color: #ff4e4e
         &.highlight
           color: #000
@@ -147,8 +145,8 @@
           line-height: 24px
           font-size: 10px
       .content-right
-        flex: 0 0 105px
-        width: 105px
+        flex: 0 0 80px
+        width: 80px
         .pay
           height: 48px
           line-height: 48px

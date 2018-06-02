@@ -1,11 +1,13 @@
 <template>
-  <div class="cartcontrol">
+  <div class="cart-control">
     <div class="cart-decrease icon-remove_circle_outline" @click.stop="decreaseCart"></div>
     <div class="cart-count">{{goodsDetail.amount}}</div>
     <div class="cart-add icon-add_circle" @click.stop="addCart($event)"></div>
   </div>
 </template>
 <script>
+  import {mapState} from 'vuex'
+
   export default {
     props: {
       goodsDetail: {}
@@ -19,7 +21,7 @@
       },
       decreaseCart(event) {
         console.info(" decrease cart");
-        if (this.goodsDetail.amount>0){
+        if (this.goodsDetail.amount > 0) {
           this.goodsDetail.amount--;
           this.$store.commit('updateCartList', this.goodsDetail);
         }
@@ -28,7 +30,7 @@
   };
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-  .cartcontrol
+  .cart-control
     font-size: 0
     .cart-decrease
       display: inline-block

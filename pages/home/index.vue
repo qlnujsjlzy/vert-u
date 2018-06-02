@@ -26,14 +26,12 @@
     async fetch({store, params}) {
       let {data} = await axios.get('http://localhost:3000/api/commonApi/wapData/advList');
       if (data.status === 1 && data.data) {
-        console.log(JSON.stringify(data));
         store.commit('setAdvList', data.data.advList);
       }
     },
     async asyncData({params}) {
       let {data} = await axios.get(`http://localhost:3000/api/commonApi/wapData/normalSubject`);
       if (data.status === 1 && data.data) {
-        console.log(JSON.stringify(data));
         return {goodsList: data.data};
       }
 

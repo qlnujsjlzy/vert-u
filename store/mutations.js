@@ -14,22 +14,32 @@ const mutations = {
     let initCart = cache.get('buyCart');
     if (initCart) {
       state.cartList = initCart;
+      console.info("lll:" + initCart);
       let total = 0.00;
       let count = 0;
+      let line = 0;
       state.cartList.forEach((value, key) => {
         total += value.price * value.amount;
         count += value.amount;
+        line++;
       });
       state.cartSelectCount = count;
       state.cartSelectPrice = total;
+      state.cartLine = line === 0 ? '' : line + '';
     }
   },
   updateCartList(state, goods) {
-    let cart = state.cartList;
-    console.log(cart);
-    if (!cart) {
-      cart = new Map();
-    }
+    let cart = (state.cartList||new Map());
+
+    let data=new Map();
+    //Map {}
+    console.info(data)
+    data.set('a',1);
+    data.set('b',2);
+    data.set('c',3);
+    //Map {"a" => 1, "b" => 2, "c" => 3
+    console.info(data);
+
     if (cart.get(goods.id)) {
       let oGoods = cart.get(goods.id);
       oGoods.amount = goods.amount;
@@ -55,7 +65,7 @@ const mutations = {
       };
       cart.set(goods.id, nGoods);
     }
-
+    console.log(cart);
     state.cartList = cart;
     let total = 0.00;
     let count = 0;
@@ -67,7 +77,7 @@ const mutations = {
     });
     state.cartSelectCount = count;
     state.cartSelectPrice = total.toFixed(2);
-    state.cartLine = line;
+    state.cartLine = line === 0 ? '' : line + '';
     //存入cache
     cache.set('buyCart', state.cartList);
   },
