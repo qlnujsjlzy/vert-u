@@ -80,6 +80,10 @@
     flex-wrap: wrap;
   }
 
+  .box {
+    padding-bottom: 10px;
+  }
+
   .f {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -142,8 +146,19 @@
     width: 88%;
   }
 
-  dt i{
+  dt i {
     font-size: 15px;
   }
 
+  dl::after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0px;
+    border-bottom: 1px solid #e8e8e8;
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+  }
 </style>
